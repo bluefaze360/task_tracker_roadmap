@@ -51,6 +51,8 @@ def main():
                 
                 tasks["tasks"].append(task)  # Add the new task to the list
                 #tasks["tasks"].append(task)
+                f.seek(0)  # Move the cursor to the beginning of the file
+
                 json.dump(tasks, f, indent=4)
         except FileNotFoundError:
             with open("tasks.json", "w") as f:
