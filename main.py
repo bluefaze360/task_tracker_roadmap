@@ -95,7 +95,7 @@ def main():
 
         print("Deleting a task...")
 
-        with open("tasks.json") as f:
+        with open("tasks.json", "r+") as f:
             tasks = json.load(f)
 
             for t in tasks["tasks"]:
