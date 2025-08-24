@@ -8,13 +8,6 @@ This application allows users to manage their tasks via command-line interface.
 """
 
 
-
-
-
-
-
-
-
 import json
 from datetime import datetime
 
