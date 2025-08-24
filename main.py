@@ -94,6 +94,14 @@ def main():
             json.dump(tasks, f, indent=4)
 
         print("Deleting a task...")
+
+        with open("tasks.json") as f:
+            tasks = json.load(f)
+
+            for t in tasks["tasks"]:
+                t["id"] = tasks["tasks"].index(t) + 1  # Reassign IDs
+
+            json.dump(tasks, f, indent=4)
         return
     
     elif comm_list[0] == "mark-in-progress":
