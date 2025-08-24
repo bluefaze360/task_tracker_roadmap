@@ -42,7 +42,11 @@ def main():
 
         print("Adding a task...")
 
-        tasks = add_json(task)
+        add_json()
+
+        with open("tasks.json") as f:
+            tasks = json.load(f)
+            tasks["tasks"].append(task)
 
 
         print("Task added successfully.")
@@ -92,16 +96,12 @@ def main():
         return
     
     
-def add_json(task):
+def add_json():
 
-    with open("tasks.json") as f:
-        tasks = json.load(f)
+    with open("tasks.json","w") as f:
 
-        tasks["tasks"].append(task)
-
-        tasks["tasks"]["id"] = len(tasks["tasks"]) + 1
-
-        json.dump(tasks, f, indent=4)
+        data = {"tasks": []}
+        json.dump(data, f, indent=4)
             
     
 
@@ -112,7 +112,7 @@ if __name__ == "__main__":
 
 # Function to append new data to JSON file
 def write_json(new_data, filename='data.json'):
-    with open(filename, 'w') as file:
+    with open(filename, 'r+') as file:
         # Load existing data into a dictionary
         file_data = json.load(file)
         
