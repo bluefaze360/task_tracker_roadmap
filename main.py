@@ -123,8 +123,6 @@ def main():
             for i in tasks['tasks']:
                 print(i)
 
-
-        print("All tasks info", tasks)
         return
     
     elif comm_list[0] == "list-done":
@@ -137,11 +135,11 @@ def main():
     
     elif comm_list[0] == "list-todo":
         print("Listing all to-do tasks...")
-        
+
         f = open("tasks.json", "r")
         data = json.load(f)
         data["tasks"] = [t for t in data["tasks"] if t["status"] == "to-do"]
-        print(data)
+        print(data["tasks"])
         f.close()
         
 
