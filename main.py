@@ -107,10 +107,38 @@ def main():
         return
     
     elif comm_list[0] == "mark-in-progress":
+        id = int(comm_list[1])
+
+        with open("tasks.json", "r+") as f:
+            tasks = json.load(f)
+
+            for t in tasks["tasks"]:
+                if t["id"] == id:
+                    t["status"] = "in-progress"
+                    t["updated_at"] = datetime.now().isoformat()
+                    break
+
+            f.seek(0)
+            json.dump(tasks, f, indent=4)
+
         print("Marking task as in-progress...")
         return
     
     elif comm_list[0] == "mark-done":
+        id = int(comm_list[1])
+
+        with open("tasks.json", "r+") as f:
+            tasks = json.load(f)
+
+            for t in tasks["tasks"]:
+                if t["id"] == id:
+                    t["status"] = "done"
+                    t["updated_at"] = datetime.now().isoformat()
+                    break
+
+            f.seek(0)
+            json.dump(tasks, f, indent=4)
+
         print("Marking task as done...")
         return
     
@@ -139,6 +167,7 @@ def main():
         f = open("tasks.json", "r")
         data = json.load(f)
         print(*[t for t in data["tasks"] if t["status"] == "to-do"], sep="\n")
+
         f.close()
         
 
