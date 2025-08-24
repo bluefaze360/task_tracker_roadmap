@@ -34,6 +34,10 @@
     - [Installation](#installation)
     - [Usage](#usage)
     - [Testing](#testing)
+- [Running the Task Tracker CLI](#running-the-task-tracker-cli)
+    - [List of Commands](#list-of-commands)
+    - [Examples](#examples)
+- [Project Link](#project-link)
 
 ---
 
@@ -107,6 +111,38 @@ Task_tracker_roadmap uses the {__test_framework__} test framework. Run the test 
 conda activate {venv}
 pytest
 ```
+
+## Running the Task Tracker CLI
+
+When the CLI initializes, the CLI will wait for you to enter a command:<br>
+<img width="118" height="26" alt="Screenshot 2025-08-23 at 10 41 52 PM" src="https://github.com/user-attachments/assets/a2251adf-8886-42fb-bc39-e2423c551a86" />
+<br>
+
+### List of Commands:
+
+**add "Task description"** - adds the task to the tracker <br>
+**update "task id" "Task description"** - finds task using the id, then updates the task description <br>
+**delete "task id"** - finds task using the id, then deletes task <br>
+<br>
+**mark-in-progress "task id"** - changes the status of the task to "in-progress"<br>
+**mark-done "task id** - changes the status of the task to "done"<br>
+<br>
+**list** - lists all tasks<br>
+**list-done** - lists finished tasks<br>
+**list-in-progress** - lists in progress tasks<br>
+**list-todo** - lists pending tasks<br>
+
+### Examples:
+
+
+**add "Do dishes"** - Adds task "Do dishes" to the tracker <br>
+**update 1 "Do the dishes in the sink"** - Updates "Do dishes" task description (since the task has an id of 1) to "Do the dishes in the sink" <br>
+**mark-in-progress 1** - Marks task - that has an id of 1 - to "in-progress" <br>
+**delete 1** <br>
+
+## Project Link
+
+https://roadmap.sh/projects/task-tracker
 
 ---
 
