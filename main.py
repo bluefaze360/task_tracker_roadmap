@@ -46,15 +46,18 @@ def main():
             with open("tasks.json", "r+") as f:
                 tasks = json.load(f)
 
-                task["id"] = len(tasks["tasks"]) + 1  # Auto-increment ID
 
-                tasks["tasks"].append(task)
+                task["id"] = len(tasks["tasks"]) + 1  # Auto-increment ID
+                
+                tasks.append(task)  # Add the new task to the list
+                #tasks["tasks"].append(task)
 
                 json.dump(tasks, f, indent=4)
         except FileNotFoundError:
             with open("tasks.json", "w") as f:
                 data = {"tasks": [task]}
                 json.dump(data, f, indent=4)
+            
 
         print("Task added successfully.")
         return
