@@ -119,9 +119,11 @@ def main():
                     break
 
             f.seek(0)
+
             json.dump(tasks, f, indent=4)
 
         print("Marking task as in-progress...")
+        
         return
     
     elif comm_list[0] == "mark-done":
@@ -137,9 +139,11 @@ def main():
                     break
 
             f.seek(0)
+
             json.dump(tasks, f, indent=4)
 
         print("Marking task as done...")
+
         return
     
     elif comm_list[0] == "list":
