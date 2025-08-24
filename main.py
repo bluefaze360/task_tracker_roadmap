@@ -26,10 +26,11 @@ def main():
     comm_list = comm.split(" ")
     #print("debug: ", comm_list)
 
-    desc = " ".join(comm_list[1:])
+    
     #print("task: ", desc)
 
     if comm_list[0] == "add":
+        desc = " ".join(comm_list[1:])
         task = {
             "id": 1,
             "description": desc, 
@@ -64,8 +65,16 @@ def main():
         return
     
     elif comm_list[0] == "update":
-        tasks[len(tasks) - 1]["description"] = desc
-        tasks[len(tasks) - 1]["updated_at"] = datetime.now().isoformat()
+        id = int(comm_list[1])
+        desc = " ".join(comm_list[2:])
+        with open("tasks.json", "r+") as f:
+            tasks = json.load(f)
+
+            for t in tasks["tasks"]:
+                if t["id"] == id:
+                    t["description"] = desc
+                    t["updated_at"] = datetime.now().isoformat()
+                    break
         print("Updating a task...")
         return
     
