@@ -75,6 +75,9 @@ def main():
                     t["description"] = desc
                     t["updated_at"] = datetime.now().isoformat()
                     break
+                
+            f.seek(0)
+            json.dump(tasks, f, indent=4)
         print("Updating a task...")
         return
     
