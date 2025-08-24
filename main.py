@@ -47,6 +47,8 @@ def main():
 
             tasks["tasks"].append(task)
 
+            tasks["tasks"]["id"] = len(tasks["tasks"])  # Auto-increment ID
+
             json.dump(tasks, f, indent=4)
 
 
