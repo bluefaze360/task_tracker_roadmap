@@ -44,8 +44,9 @@ def main():
 
         add_json()
 
-        with open("tasks.json") as f:
+        with open("tasks.json", "a") as f:
             tasks = json.load(f)
+
             tasks["tasks"].append(task)
 
             json.dump(tasks, f, indent=4)
