@@ -48,6 +48,8 @@ def main():
             tasks = json.load(f)
             tasks["tasks"].append(task)
 
+            tasks.dump(tasks, f, indent=4)
+
 
         print("Task added successfully.")
         return
