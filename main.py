@@ -40,7 +40,6 @@ def main():
             "updated_at": datetime.now().isoformat()})
 
         print("Adding a task...")
-        print("Task info", tasks)
         return
     
     elif comm_list[0] == "update":
@@ -63,6 +62,8 @@ def main():
     
     elif comm_list[0] == "list":
         print("Listing all tasks...")
+
+        print("All tasks info", tasks)
         return
     
     elif comm_list[0] == "list-done":
