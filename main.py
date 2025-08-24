@@ -43,7 +43,7 @@ def main():
 
         tasks = add_json(task)
 
-        print("Task added successfully with ID {}".format(tasks["tasks"]["id"]))
+        print("Task added successfully with ID {}".format(tasks[-1]["id"]))
         return
     
     elif comm_list[0] == "update":
