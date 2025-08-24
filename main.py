@@ -75,13 +75,24 @@ def main():
                     t["description"] = desc
                     t["updated_at"] = datetime.now().isoformat()
                     break
-                
+
             f.seek(0)
             json.dump(tasks, f, indent=4)
+
         print("Updating a task...")
         return
     
     elif comm_list[0] == "delete":
+        id = int(comm_list[1])
+        with open("tasks.json", "r+") as f:
+            tasks = json.load(f)
+
+            tasks["tasks"] = [t for t in tasks["tasks"] if t["id"] != id]
+
+            f.seek(0)
+            f.truncate()
+            json.dump(tasks, f, indent=4)
+
         print("Deleting a task...")
         return
     
