@@ -19,9 +19,13 @@ import json
 
 def main():
     comm = input("Enter a task: ")
+    
     comm_list = comm.split(" ")
     print("debug: ", comm_list)
-    
+
+    desc = " ".join(comm_list[1:])
+    print("debug: ", desc)
+
     if comm_list[0] == "add":
         
         print("Adding a task...")
