@@ -56,7 +56,7 @@ def main():
                 json.dump(tasks, f, indent=4)
         except FileNotFoundError:
             with open("tasks.json", "w") as f:
-                data = {"tasks": []}
+                data = {"tasks": [task]}
                 json.dump(data, f, indent=4)
             
 
