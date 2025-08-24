@@ -2,7 +2,7 @@
     "tasks": [
         {
             "id": 1,
-            "description": "\"Create README\"",
+            "description": "\"Do dishes\"",
             "status": "to-do",
             "created_at": "2025-08-23T21:12:32.834741",
             "updated_at": "2025-08-23T21:12:32.834794"
