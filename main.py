@@ -10,7 +10,7 @@ This application allows users to manage their tasks via command-line interface.
 
 
 
-"""Wassup effers"""
+
 
 
 
@@ -19,9 +19,7 @@ import json
 from datetime import datetime
 
 def main():
-
-
-    comm = input("Enter a task: ")
+    comm = input("task-cli ")
 
     comm_list = comm.split(" ")
     #print("debug: ", comm_list)
@@ -123,7 +121,7 @@ def main():
             json.dump(tasks, f, indent=4)
 
         print("Marking task as in-progress...")
-        
+
         return
     
     elif comm_list[0] == "mark-done":
