@@ -21,6 +21,7 @@ def main():
     comm = input("Enter a task: ")
     comm_list = comm.split(" ")
     print("debug: ", comm_list)
+    
     if comm_list[0] == "add":
         
         print("Adding a task...")
