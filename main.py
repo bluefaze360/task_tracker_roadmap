@@ -43,7 +43,7 @@ def main():
 
         tasks = add_json(task)
 
-        print("Task added successfully with ID ", tasks["tasks"]["id"])
+        print("Task added successfully with ID {}".format(tasks["tasks"]["id"]))
         return
     
     elif comm_list[0] == "update":
@@ -98,6 +98,8 @@ def add_json(task):
     except FileNotFoundError:
         task_list = {"tasks": [task]}
 
+        print("Unable to create")
+
         return task_list
     except json.JSONDecodeError:
         return []
@@ -116,8 +118,6 @@ def write_json(new_data, filename='data.json'):
         
         # Append new data to the 'emp_details' list
         file_data["emp_details"].append(new_data)
-
-        file_data["emp_details"]["id"] = len(file_data["emp_details"]) + 1
         
         # Move the cursor to the beginning of the file
         file.seek(0)
