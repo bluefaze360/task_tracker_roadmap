@@ -4,22 +4,22 @@
             "id": 1,
             "description": "\"Do dishes\"",
             "status": "to-do",
-            "created_at": "2025-08-23T19:51:31.051469",
-            "updated_at": "2025-08-23T19:51:31.051501"
+            "created_at": "2025-08-23T20:15:12.200793",
+            "updated_at": "2025-08-23T20:15:12.200843"
         },
         {
             "id": 2,
-            "description": "\"Wipe the kitchen surfaces",
+            "description": "\"Do laundry\"",
             "status": "to-do",
-            "created_at": "2025-08-23T19:51:40.974535",
-            "updated_at": "2025-08-23T20:04:08.383505"
+            "created_at": "2025-08-23T20:15:45.092338",
+            "updated_at": "2025-08-23T20:15:45.092371"
         },
         {
             "id": 3,
-            "description": "\"Laundry\"",
+            "description": "\"Wipe surfaces\"",
             "status": "to-do",
-            "created_at": "2025-08-23T19:53:04.823269",
-            "updated_at": "2025-08-23T19:53:04.823325"
+            "created_at": "2025-08-23T20:16:06.814241",
+            "updated_at": "2025-08-23T20:16:06.814289"
         }
     ]
 }
