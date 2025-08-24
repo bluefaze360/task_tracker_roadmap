@@ -42,8 +42,6 @@ def main():
 
         print("Adding a task...")
 
-        add_json()
-
         with open("tasks.json", "r+") as f:
             tasks = json.load(f)
 
