@@ -155,10 +155,24 @@ def main():
     
     elif comm_list[0] == "list-done":
         print("Listing all done tasks...")
+
+        f = open("tasks.json", "r")
+        data = json.load(f)
+        print(*[t for t in data["tasks"] if t["status"] == "done"], sep="\n")
+
+        f.close()
+
         return
     
     elif comm_list[0] == "list-in-progress":
         print("Listing all in-progress tasks...")
+
+        f = open("tasks.json", "r")
+        data = json.load(f)
+        print(*[t for t in data["tasks"] if t["status"] == "in-progress"], sep="\n")
+
+        f.close()
+
         return
     
     elif comm_list[0] == "list-todo":
