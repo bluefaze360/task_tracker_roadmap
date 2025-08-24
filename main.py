@@ -35,7 +35,8 @@ def main():
             "description": desc, 
             "status": "to-do", 
             "created_at": datetime.now().isoformat(),
-            "updated_at": datetime.now().isoformat()}
+            "updated_at": datetime.now().isoformat()
+        }
         
         
 
@@ -43,7 +44,8 @@ def main():
 
         tasks = add_json(task)
 
-        print("Task added successfully with ID {}".format(tasks[len(tasks["tasks"])]["id"]))
+
+        print("Task added successfully.")
         return
     
     elif comm_list[0] == "update":
@@ -67,6 +69,13 @@ def main():
     elif comm_list[0] == "list":
         print("Listing all tasks...")
 
+        with open("tasks.json") as f:
+            tasks = json.load(f)
+
+            for i in tasks['tasks']:
+                print(i)
+
+
         print("All tasks info", tasks)
         return
     
@@ -84,25 +93,16 @@ def main():
     
     
 def add_json(task):
-    try:
-        with open("tasks.json") as f:
-            tasks = json.load(f)
 
-            tasks["tasks"].append(task)
+    with open("tasks.json") as f:
+        tasks = json.load(f)
 
-            tasks["tasks"]["id"] = len(tasks["tasks"]) + 1
+        tasks["tasks"].append(task)
 
-            json.dump(tasks, f, indent=4)
+        tasks["tasks"]["id"] = len(tasks["tasks"]) + 1
+
+        json.dump(tasks, f, indent=4)
             
-            return tasks
-    except FileNotFoundError:
-        task_list = {"tasks": [task]}
-
-        print("Unable to create")
-
-        return task_list
-    except json.JSONDecodeError:
-        return []
     
 
 
