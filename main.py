@@ -105,16 +105,7 @@ def main():
     elif comm_list[0] == "list-todo":
         print("Listing all to-do tasks...")
         return
-    
-    
-def add_json():
-
-    with open("tasks.json","w") as f:
-
-        data = {"tasks": []}
-        json.dump(data, f, indent=4)
-            
-    
+      
 
 
 if __name__ == "__main__":
