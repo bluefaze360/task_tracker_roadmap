@@ -138,7 +138,7 @@ def main():
 
         f = open("tasks.json", "r")
         data = json.load(f)
-        print([t for t in data["tasks"] if t["status"] == "to-do"], sep="\n")
+        print(*[t for t in data["tasks"] if t["status"] == "to-do"], sep="\n")
         f.close()
         
 
