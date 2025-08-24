@@ -51,11 +51,11 @@ def main():
                 
                 tasks.append(task)  # Add the new task to the list
                 #tasks["tasks"].append(task)
-
+                
                 json.dump(tasks, f, indent=4)
         except FileNotFoundError:
             with open("tasks.json", "w") as f:
-                data = {"tasks": [task]}
+                data = {"tasks": []}
                 json.dump(data, f, indent=4)
             
 
