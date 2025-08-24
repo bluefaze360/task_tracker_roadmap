@@ -46,9 +46,9 @@ def main():
             with open("tasks.json", "r+") as f:
                 tasks = json.load(f)
 
-                tasks["tasks"].append(task)
+                task["id"] = len(tasks["tasks"]) + 1  # Auto-increment ID
 
-                tasks["tasks"]["id"] = len(tasks["tasks"])  # Auto-increment ID
+                tasks["tasks"].append(task)
 
                 json.dump(tasks, f, indent=4)
         except FileNotFoundError:
