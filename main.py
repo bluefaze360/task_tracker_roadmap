@@ -20,8 +20,6 @@ from datetime import datetime
 
 def main():
 
-    tasks = init_tracker()
-
 
     comm = input("Enter a task: ")
 
@@ -32,14 +30,20 @@ def main():
     #print("task: ", desc)
 
     if comm_list[0] == "add":
-        tasks.append({
-            "id": len(tasks) + 1,
+        task = {
+            "id": 1,
             "description": desc, 
             "status": "to-do", 
             "created_at": datetime.now().isoformat(),
-            "updated_at": datetime.now().isoformat()})
+            "updated_at": datetime.now().isoformat()}
+        
+        
 
         print("Adding a task...")
+
+        tasks = add_json(task)
+
+        print("Task added successfully with ID ", tasks["id"])
         return
     
     elif comm_list[0] == "update":
@@ -79,12 +83,44 @@ def main():
         return
     
     
-def init_tracker():
-    tasks = []
+def add_json(task):
+    try:
+        with open("tasks.json", "w") as f:
+            tasks = json.load(f)
 
-    return tasks
+            tasks["tasks"].append(task)
+
+            tasks["tasks"]["id"] = len(tasks["tasks"]) + 1
+
+            json.dump(tasks, f, indent=4)
+            
+            return tasks
+    except FileNotFoundError:
+        task_list = {"tasks": [task]}
+
+        return task_list
+    except json.JSONDecodeError:
+        return []
+    
+
 
 if __name__ == "__main__":
     main()
 
 
+# Function to append new data to JSON file
+def write_json(new_data, filename='data.json'):
+    with open(filename, 'w') as file:
+        # Load existing data into a dictionary
+        file_data = json.load(file)
+        
+        # Append new data to the 'emp_details' list
+        file_data["emp_details"].append(new_data)
+
+        file_data["emp_details"]["id"] = len(file_data["emp_details"]) + 1
+        
+        # Move the cursor to the beginning of the file
+        file.seek(0)
+        
+        # Write the updated data back to the file
+        json.dump(file_data, file, indent=4)
