@@ -101,6 +101,8 @@ def main():
             for t in tasks["tasks"]:
                 t["id"] = tasks["tasks"].index(t) + 1  # Reassign IDs
 
+            f.seek(0)
+
             json.dump(tasks, f, indent=4)
         return
     
